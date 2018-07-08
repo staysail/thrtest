@@ -1,0 +1,21 @@
+= thrtest - thread primitive testing (microbenchmarks)
+
+This program is for use on POSIX systems (Linux, illumos, BSD, macOS, etc.)
+It measures some primitive operations such as handoff latency when switching
+between threads for condition variables, mutexes, and so forth.
+
+The idea is to be able to get some basic idea of typical overheads for using
+threading synchronization primitives.
+
+You can build this with CMake, or just compile the .c and link against
+your pthread library, such as:
+
+```
+% $(CC) thrtest.c -l pthread -o thrtest
+```
+
+Staysail Systems uses this for our customer support needs.  You may want
+to read the source code to understand the meaning of the output.
+
+The code is licensed under the Apache Software License 2.0.  See the
+LICENSE file for more details.
